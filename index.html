@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>个人简历作品集｜视频 · PPT · 文字</title>
+  <meta name="description" content="视频 / PPT / 文字三栖创作作品集，支持B站与腾讯文档在线预览，适合中国境内访问。">
+  <!-- 说明：此版本为“飞书直传可预览”版，不依赖外部脚本/样式库；iframe 仅用于 B站/腾讯文档/飞书文档。 -->
+  <style>
+    :root{
+      --bg:#0b0c0f;--card:#111318;--text:#e9edf1;--muted:#9aa4b2;--brand:#3aa0ff;--brand-2:#6a7cff;
+      --soft:#181b22;--radius:14px;--max:1120px;
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0c0f 0%,#0e1117 100%);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Inter","PingFang SC","Hiragino Sans GB","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",sans-serif}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:12px 18px;border-radius:999px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:white;border:none;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;border:1px solid #2a2f3a;color:var(--text)}
+    .pill{background:#12151d;border:1px solid #232a36;border-radius:999px;padding:6px 12px;color:#b7c0ce;font-size:12px}
+    .grid{display:grid;gap:18px} .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}} @media (max-width:640px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid #1d222d;border-radius:var(--radius);overflow:hidden}
+    .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#1a2030 0%,#121826 100%);display:flex;align-items:center;justify-content:center;color:#8ea0bd}
+    .card-body{padding:14px 14px 16px}
+    .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}.kpi{background:#12151d;border:1px solid #232a36;border-radius:12px;padding:8px 10px;color:#b7c0ce;font-size:12px}
+    .section{padding:60px 0}.section h2{font-size:26px;margin:0 0 18px}.section p.lead{color:var(--muted);margin:0 0 22px}
+    header{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.7);backdrop-filter:blur(10px);border-bottom:1px solid #161a22}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}.brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .nav-links{display:flex;gap:12px;align-items:center}.nav-links a{padding:8px 12px;border-radius:8px;color:#cdd6e1}.nav-links a:hover{background:#151a24}
+    .menu{display:none}@media (max-width:820px){.menu{display:block;background:none;border:1px solid #2a2f3a;border-radius:8px;color:#cdd6e1;padding:6px 10px}
+      .nav-links{display:none;position:absolute;left:16px;right:16px;top:62px;background:#0f1219;border:1px solid #1b2130;border-radius:12px;padding:10px}
+      .nav-links.show{display:grid;grid-template-columns:1fr 1fr;gap:6px} .nav-links a{background:#0f131b;border:1px solid #1b2230}}
+    .hero{padding:86px 0 60px;background:radial-gradient(1200px 400px at 70% -10%,rgba(58,160,255,.12) 0,transparent 60%),radial-gradient(900px 320px at 20% -10%,rgba(106,124,255,.10) 0,transparent 60%)}
+    .hero .title{font-size:38px;line-height:1.2;margin:0 0 10px}.hero .sub{color:#aab3c1;margin:0 0 20px;font-size:18px}
+    .hero .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hero .stat{background:#12151d;border:1px solid #232a36;border-radius:12px;padding:10px 12px;color:#c7d0de}
+    .ratio{position:relative;width:100%;padding-top:56.25%}.ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    footer{padding:28px 0;color:#9aa4b2;border-top:1px solid #161a22}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .qr{width:140px;height:140px;border-radius:12px;background:#151a24;border:1px dashed #263044;display:flex;align-items:center;justify-content:center;color:#6f7d95}
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#141824;border:1px solid #2a3347;color:#cfe2ff;padding:10px 14px;border-radius:10px;display:none}
+    :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div><span>作品集</span></div>
+      <button class="menu" aria-label="展开菜单" onclick="toggleMenu()">菜单</button>
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="主导航">
+        <a href="#home">首页</a><a href="#video">视频作品</a><a href="#ppt">PPT作品</a><a href="#writing">文字作品</a><a href="#about">关于我</a><a href="#contact">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="wrap">
+      <h1 class="title">做对「增长」有用的内容与视觉</h1>
+      <p class="sub">视频 × 演示 × 文案</p>
+      <div class="hero stats">
+        <div class="stat">总播放 <b>30w+</b></div><div class="stat">采访视频 <b>20+</b></div><div class="stat">覆盖行业 <b>3</b></div>
+      </div>
+      <div class="hero actions" style="margin-top:16px">
+        <a class="btn" href="#video">查看作品</a>
+        <a class="btn ghost" href="#ppt">PDF 合集</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid cols-3">
+        <a class="card" href="#video">
+          <div class="thumb">视频 Video</div>
+          <div class="card-body"><b>广告 / 短片 / 采访</b><p class="muted">B站可直接播放。</p>
+            <div class="pill">剪辑</div> <div class="pill">拍摄</div> <div class="pill">撰稿</div></div>
+        </a>
+        <a class="card" href="#ppt">
+          <div class="thumb">PPT Demo</div>
+          <div class="card-body"><b>方案 / 评论 / 演示</b><p class="muted">WPS在线预览；支持PDF合集下载。</p>
+            <div class="pill"></div> <div class="pill">数</div></div>
+        </a>
+        <a class="card" href="#writing">
+          <div class="thumb">文字 Writing</div>
+          <div class="card-body"><b>采访稿 / 文案 / 复盘</b><p class="muted"></p>
+            <div class="pill"></div> <div class="pill"></div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="video" class="section">
+    <div class="wrap">
+      <h2>VIDEO | 视频作品</h2>
+      <p class="lead">点击卡片弹出播放。</p>
+      <div class="grid cols-5">
+        <article class="card">
+          <button class="thumb" onclick="openVideo('https://www.bilibili.com/video/BV1iqEtziEyx?vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body"><b>《“我追周深，但我没有迷失自己”》人物专访</b><p class="muted">剪辑/调色/文案</p>
+            <div class="kpis"><span class="kpi">完播率 32%</span><span class="kpi">CTR 3.1%</span></div></div>
+        </article>
+        <article class="card">
+          <button class="thumb" onclick="openVideo(' https://www.bilibili.com/video/BV1eU4y1z7wv/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body"><b>【何玉玲|“然后天空又再涌起密云”】影视混剪</b><p class="muted"></p>
+            <div class="kpis"><span class="kpi"></span><span class="kpi"></span></div></div>
+        </article>
+        <article class="card">
+          <button class="thumb" onclick="openVideo(' https://www.bilibili.com/video/BV1mgbAz5EDB/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body"><b>【我把尸体埋在冬天】短片</b><p class="muted">短片/分镜/剪辑</p>
+            <div class="kpis"><span class="kpi"></span></div></div>
+        </article>
+		<article class="card">
+          <button class="thumb" onclick="openVideo('https://www.bilibili.com/video/BV18NbAzmEvn/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body"><b>【【尖叫广告视频】 】广告片</b><p class="muted">广告/脚本/剪辑</p>
+            <div class="kpis"><span class="kpi"></span></div></div>
+        </article>
+		<article class="card">
+          <button class="thumb" onclick="openVideo('  https://www.bilibili.com/video/BV1ZbGEzbEE8/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body"><b>【莉莉丝|这家书店的意义是为了让更多女性能够彼此看见】人物专访</b><p class="muted">采访/撰稿</p>
+            <div class="kpis"><span class="kpi"></span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ppt" class="section">
+    <div class="wrap">
+      <h2>PPT | 评论与演示</h2>
+      <p class="lead"></p>
+      <div class="grid cols-1">
+        <article class="card">
+          <div class="card-body"><b>《一周时评》</b><p class="muted">新闻评论 / 热点事件 /</p></div>
+          <div class="ratio"><iframe src="https://kdocs.cn/l/cgGJZJmHHUkU" title="WPS预览"></iframe></div>
+        </article>
+        <article class="card">
+          <div class="card-body"><b>《 Stray animal protection》</b><p class="muted">动物保护 /数据分析 / PPT动画</p></div>
+          <div class="ratio"><iframe src="https://kdocs.cn/l/cbeUZjhrhQhj" title="WPS预览"></iframe></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing" class="section">
+    <div class="wrap">
+      <h2>WRITING | 文案与复盘</h2>
+       <p class="lead"></p>
+      <div class="grid cols-1">
+        <article class="card">
+          <div class="card-body"><b></b>《预防青少年犯罪于未然》<p class="muted">H5融媒体作品</p></div>
+          <div class="ratio"><iframe src="https://b.xiumi.us/stage/v5/6ddc6/537833901#/" title="秀米预览"></iframe></div>
+        </article>
+        <article class="card">
+          <div class="card-body"><b>《 欅坂46——日本燃烧生命的偶像文化》</b><p class="muted">公众号文章</p></div>
+          <div class="ratio"><iframe src="https://d.xiumi.us/board/v5/5MKdt/518954408" title="秀米预览"></iframe></div>
+        </article>
+		<article class="card">
+          <div class="card-body"><b></b>《劈波斩浪，她的风帆永远高昂》<p class="muted">帆板运动员采访稿</p></div>
+          <div class="ratio"><iframe src="https://kdocs.cn/l/cei46jK0Iz6y" title="WPS预览"></iframe></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="wrap">
+      <h2>关于我</h2>
+      <div class="grid cols-2">
+        <div class="card" style="padding:16px">
+          <p>北京体育大学22级新闻学在读</p>
+          <div class="pill">文案创作</div> <div class="pill">视频剪辑</div> <div class="pill">海报设计</div> <div class="pill">采访拍摄</div>
+          <p class="muted" style="margin-top:10px">工具：Premiere / After Effects / WPS / Obsidian / PPT / Excel</p>
+        </div>
+        <div class="card" style="padding:16px">
+          <b>服务行业</b>
+          <p class="muted">科普｜教育｜摄影</p>
+          <div class="kpis"><span class="kpi"></span><span class="kpi"></span><span class="kpi"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="wrap">
+      <h2>联系我</h2>
+      <div class="grid cols-2">
+        <div class="card" style="padding:16px">
+          <p>邮箱：<b id="mail">2556563819@qq.com</b></p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn" onclick="copyMail()">复制邮箱</button>
+            <a class="btn ghost" href="mailto:your.name@domain.com">写邮件</a>
+          </div>
+          <p class="muted" style="margin-top:12px">也可微信添加：retsu421</p>
+        </div>
+        <div class="qr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAKACAYAAACqaXHeAAAgAElEQVR4nOzdd5iVdZ7/8d+XWjQ1IakqApQJUWc8ATgPpJge6tAAxTmUpouNe7yzumEr0uc5c4qK7uY5dVjVTPqYiqrdhZmfXfj0/zxmaFsgzR8Xr93uDw9wQhIEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEm
+</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <small>© <span id="year"></span> wxy. 保留所有权利.</small>
+      <small class="muted"></small>
+    </div>
+  </footer>
+
+  <!-- 简易 Toast，避免在飞书里用 alert() -->
+  <div class="toast" id="toast">已复制</div>
+
+  <div class="modal" id="videoModal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);z-index:100">
+    <div class="panel" style="width:min(920px,92vw);background:#0f131b;border:1px solid #21283a;border-radius:16px;overflow:hidden">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid #1c2332">
+        <div style="font-weight:600">视频播放</div>
+        <button onclick="closeVideo()" class="btn ghost">关闭</button>
+      </div>
+      <div class="ratio"><iframe id="videoFrame" src="" allowfullscreen title="视频播放器"></iframe></div>
+    </div>
+  </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleMenu(){ document.getElementById('navLinks').classList.toggle('show'); }
+
+  // Toast
+  const toastEl = document.getElementById('toast');
+  function toast(text){
+    toastEl.textContent = text || '已复制';
+    toastEl.style.display = 'block';
+    setTimeout(()=>toastEl.style.display='none', 1800);
+  }
+
+  function copyMail(){
+    const mail = document.getElementById('mail').textContent.trim();
+    navigator.clipboard.writeText(mail).then(()=>toast('已复制：' + mail));
+  }
+
+  // Video modal
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoFrame');
+  function openVideo(src){ frame.src = src; modal.style.display = 'flex'; }
+  function closeVideo(){ frame.src = ''; modal.style.display = 'none'; }
+
+  // 说明：若你发现在飞书内 iframe 被拦截（X-Frame-Options/SameSite），
+  // 请改用 B站、腾讯文档或飞书文档的链接，它们通常能正常嵌入。
+</script>
+</body>
+</html>
