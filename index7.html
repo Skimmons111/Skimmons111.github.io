@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>wxy · 作品集</title>
+<meta name="theme-color" content="#ffffff">
+<style>
+:root{
+  --bg:#ffffff; --ink:#0f172a; --muted:#667085; --line:#e6eaf0; --chip:#f8fafc;
+  --pink:#ff5fa2; --green:#2fc7a0;
+  --radius:18px; --max:1200px;
+  --shadow:0 12px 28px rgba(2,6,23,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","PingFang SC","Hiragino Sans GB","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+a{color:#0ea5a6;text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.section{padding:40px 0}            /* 收紧栏目间距 */
+h1,h2{margin:0}
+.section-title{font-size:22px;font-weight:900;letter-spacing:.2px;margin-bottom:10px}
+.section-title::after{content:"";display:block;width:40px;height:3px;border-radius:3px;margin-top:8px;
+  background:linear-gradient(90deg,var(--pink),var(--green));}
+.lead{color:var(--muted);margin:6px 0 0}
+
+/* 顶部导航 */
+header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}
+.logo{width:30px;height:30px;border-radius:10px;border:2px solid var(--pink);position:relative}
+.logo::after{content:"";position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border-radius:50%;background:var(--green)}
+.nav-links{display:flex;gap:6px}
+.nav-links a{padding:8px 10px;border-radius:10px;color:#334155}
+.nav-links a:hover{background:#f3f4f6}
+.menu{display:none}
+@media (max-width:820px){
+  .menu{display:block;background:transparent;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .nav-links{display:none;position:absolute;left:16px;right:16px;top:60px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}
+  .nav-links.show{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+}
+
+/* ===== 关于我（无边框极简） ===== */
+.hero{padding:32px 0 12px}          /* 更紧凑 */
+.hero-grid{display:grid;grid-template-columns:260px 1fr;gap:20px}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:14px}}
+
+.avatar{
+  width:136px;height:136px;border-radius:50%;
+  border:6px solid #f4f6fa;outline:3px solid var(--pink);
+  display:grid;place-items:center;font-weight:900;font-size:24px;color:#111827;margin:0 auto 8px;position:relative
+}
+.avatar::after{content:"";position:absolute;right:8px;bottom:8px;width:14px;height:14px;border-radius:50%;background:var(--green)}
+.profile-meta{color:#64748b;text-align:center;font-size:13px;line-height:1.6}
+.profile-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.tag{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:12px;color:#334155}
+.title{font-size:30px;line-height:1.18;margin:0 0 6px;font-weight:900}
+.intro{color:#475569;line-height:1.75;margin:6px 0 0}
+
+/* ===== 学历 / 实习经历：极简列表（无竖线/无红点） ===== */
+.plain-list{list-style:none;margin:0;padding:0}
+.plain-list li{padding:6px 0}       /* 收紧行距 */
+.when{font-weight:800;margin-right:10px}
+.item-text{color:#334155}
+
+/* ===== 技能（带 ICON） ===== */
+.skill-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media (max-width:1000px){.skill-grid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:620px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+.skill{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;transition:transform .2s, box-shadow .2s, border-color .2s}
+.skill:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#dfe6ef}
+.skill svg{width:22px;height:22px;flex:0 0 22px}
+.skill span{font-weight:600;color:#344256}
+
+/* ===== 卡片 / 轨道 / 栅格 / 标签 ===== */
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;transition:transform .2s, box-shadow .2s, border-color .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(2,6,23,.09);border-color:#dfe6ef}
+.card-body{padding:12px 14px 14px}
+.thumb{position:relative;aspect-ratio:16/9;background:#f3f4f6;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:700}
+.badge{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700}
+.play{width:0;height:0;border-left:10px solid var(--pink);border-top:6px solid transparent;border-bottom:6px solid transparent;margin-right:6px;display:inline-block;vertical-align:-2px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.meta span{font-size:12px;color:#475569;border:1px solid var(--line);border-radius:10px;padding:6px 8px;background:#fff}
+.grid{display:grid;gap:14px}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:820px){.grid.cols-2{grid-template-columns:1fr}}
+.pill{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:#334155;font-size:12px;margin-right:6px}
+.kpis{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.muted{color:#64748b}
+
+/* ------- 横向滑动 + 箭头 ------- */
+.rail-wrap{position:relative}
+.rail{display:flex;gap:16px;overflow:auto;padding:4px;scroll-snap-type:x mandatory;scroll-padding-left:20px}
+.rail>*{scroll-snap-align:start;min-width:82%}
+@media (min-width:760px){.rail>*{min-width:48%}}
+@media (min-width:1100px){.rail>*{min-width:31%}}
+.arrow{
+  position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);display:none;place-items:center;cursor:pointer;
+}
+.arrow svg{width:16px;height:16px}
+.rail-wrap:hover .arrow{display:grid}
+.arrow.prev{left:-6px}
+.arrow.next{right:-6px}
+
+/* 比例容器 */
+.ratio{position:relative;width:100%;padding-top:56.25%}
+.ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ===== 联系我（无边框统一） ===== */
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center}
+@media (max-width:820px){.contact{grid-template-columns:1fr;gap:12px}}
+.contact .left p{margin:0 0 8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:800}
+.btn.primary{background:linear-gradient(90deg,var(--pink),var(--green));border:none;color:#fff}
+
+/* 弹窗 & Toast & footer */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);z-index:100}
+.panel{width:min(920px,92vw);background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+footer{padding:24px 0;border-top:1px solid var(--line);color:#9aa4b2}
+.footer-in{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#141824;border:1px solid #2a3347;color:#cfe2ff;padding:10px 14px;border-radius:10px;display:none}
+
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><div class="logo" aria-hidden="true"></div>wxy · Portfolio</div>
+    <button class="menu" aria-label="展开菜单" onclick="document.getElementById('nav').classList.toggle('show')">菜单</button>
+    <nav id="nav" class="nav-links">
+      <a href="#home">关于我</a>
+      <a href="#edu">学历</a>
+      <a href="#exp">实习经历</a>
+      <a href="#skills">技能</a>
+      <a href="#video">视频</a>
+      <a href="#ppt">PPT</a>
+      <a href="#writing">WRITING</a>
+      <a href="#contact">联系我</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== 关于我（仅头像+标题+自我介绍） ===== -->
+<section id="home" class="hero">
+  <div class="wrap">
+    <h2 class="section-title">关于我</h2>
+    <div class="hero-grid">
+      <div>
+        <div class="avatar">WXY</div>
+        <div class="profile-meta">wxy · 内容 / 视觉<br/>北京体育大学 22级 · 新闻学</div>
+        <div class="profile-tags">
+          <span class="tag">文案</span><span class="tag">剪辑</span><span class="tag">海报</span><span class="tag">采访</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="title">你好，我是 <b>wxy</b></h3>
+        <p class="intro">
+          我擅长把复杂信息转成好理解、好传播的内容与视觉：从选题与脚本、到拍摄与剪辑、再到演示与复盘。
+          在校园与实习中长期配合采访与专题片，能够独立完成短视频与PPT的完整链路；对增长指标（完播率、CTR）有基本敏感度。
+          期待在 <b>科普 / 教育 / 摄影</b> 等行业做更有影响力的作品。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 学历（极简列表） ===== -->
+<section id="edu" class="section">
+  <div class="wrap">
+    <h2 class="section-title">学历</h2>
+    <ul class="plain-list" aria-label="学历列表">
+      <li><span class="when">2022 — 至今</span><span class="item-text">北京体育大学 22级 · 新闻学｜专注 文案创作 · 视频剪辑 · 海报设计 · 采访拍摄</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 实习经历（极简列表） ===== -->
+<section id="exp" class="section">
+  <div class="wrap">
+    <h2 class="section-title">实习经历</h2>
+    <ul class="plain-list" aria-label="实习经历列表">
+      <li><span class="when">2025 — 2025</span><span class="item-text">搜狐 · 内容/视频相关</span></li>
+      <li><span class="when">2025 — 至今</span><span class="item-text">微博 · 内容/视频相关</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 技能（带 ICON） ===== -->
+<section id="skills" class="section">
+  <div class="wrap">
+    <h2 class="section-title">技能</h2>
+    <div class="skill-grid">
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#ff5fa2" stroke-width="1.6"/><path d="M8 16V8h3.4c1.8 0 2.9.9 2.9 2.4 0 1.6-1.2 2.6-3.1 2.6H9.4V16H8Zm1.4-4h2.1c1 0 1.6-.5 1.6-1.4S12.6 9 11.5 9H9.4v3Z" fill="#0f172a"/></svg>
+        <span>Premiere</span>
+      </div>
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#a855f7" stroke-width="1.6"/><path d="M7.8 16 10 8h1.6l2.2 8h-1.6l-.4-1.6H9.7L9.3 16H7.8Zm2.2-3h2l-1-3.7-1 3.7Zm6.6 3c-1.3 0-2.2-.8-2.2-2 0-1.3.9-2.1 2.3-2.1.5 0 .9.1 1.3.3v-.2c0-.8-.5-1.3-1.4-1.3-.6 0-1.1.2-1.6.5l-.6-1.1c.7-.5 1.5-.7 2.3-.7 1.7 0 2.7.9 2.7 2.4V16h-1.4l-.1-.5c-.4.4-1 .6-1.3.6Z" fill="#0f172a"/></svg>
+        <span>After Effects</span>
+      </div>
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#ef4444" stroke-width="1.6"/><path d="M12 6a6 6 0 1 1 0 12V6Z" fill="#ef4444" opacity=".12"/><path d="M12 6v6h6" stroke="#ef4444" stroke-width="1.6"/></svg>
+        <span>PowerPoint</span>
+      </div>
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#22c55e" stroke-width="1.6"/><path d="M7 8h10M7 12h7M7 16h6" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>WPS</span>
+      </div>
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#16a34a" stroke-width="1.6"/><path d="M7 7h10v10H7z" fill="#16a34a" opacity=".1"/><path d="m9 9 6 6m-6 0 6-6" stroke="#16a34a" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Excel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 三类入口（横向滑动 + 箭头） ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="rail-wrap">
+      <div class="rail" aria-label="作品分类滑动列表">
+        <a class="card" href="#video">
+          <div class="thumb">视频 Video</div>
+          <div class="card-body">
+            <b>广告 / 短片 / 采访</b>
+            <p class="pill" style="margin-top:8px">剪辑</p> <span class="pill">拍摄</span> <span class="pill">撰稿</span>
+            <p class="kpis" style="margin-top:10px"><span class="pill">B站播放</span><span class="pill">16:9</span></p>
+          </div>
+        </a>
+        <a class="card" href="#ppt">
+          <div class="thumb">PPT Demo</div>
+          <div class="card-body">
+            <b>方案 / 评论 / 演示</b>
+            <p class="pill" style="margin-top:8px">数据分析</p> <span class="pill">讲故事</span>
+            <p class="kpis" style="margin-top:10px"><span class="pill">WPS 预览</span><span class="pill">PDF合集</span></p>
+          </div>
+        </a>
+        <a class="card" href="#writing">
+          <div class="thumb">文字 Writing</div>
+          <div class="card-body">
+            <b>采访稿 / 文案 / 复盘</b>
+            <p class="pill" style="margin-top:8px">选题</p> <span class="pill">结构化</span>
+          </div>
+        </a>
+      </div>
+      <button class="arrow prev" aria-label="向左">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M14 6 8 12l6 6" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="arrow next" aria-label="向右">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视频（横滑卡片 + 箭头） ===== -->
+<section id="video" class="section">
+  <div class="wrap">
+    <h2 class="section-title">VIDEO | 视频作品</h2>
+    <p class="lead">左右滑动，点击卡片弹出播放。</p>
+    <div class="rail-wrap">
+      <div class="rail">
+        <article class="card">
+          <button class="thumb" onclick="openVideo('https://www.bilibili.com/video/BV1iqEtziEyx?vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body">
+            <b>《“我追周深，但我没有迷失自己”》人物专访</b>
+            <p class="muted">剪辑 / 调色 / 文案</p>
+            <div class="kpis"><span class="pill">完播率 32%</span><span class="pill">CTR 3.1%</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <button class="thumb" onclick="openVideo('https://www.bilibili.com/video/BV1eU4y1z7wv/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body">
+            <b>【何玉玲 | “然后天空又再涌起密云”】混剪</b>
+            <p class="muted">选曲 / 节奏 / 色调</p>
+          </div>
+        </article>
+        <article class="card">
+          <button class="thumb" onclick="openVideo('https://www.bilibili.com/video/BV1mgbAz5EDB/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body">
+            <b>【我把尸体埋在冬天】短片</b>
+            <p class="muted">分镜 / 剪辑</p>
+          </div>
+        </article>
+        <article class="card">
+          <button class="thumb" onclick="openVideo('https://www.bilibili.com/video/BV18NbAzmEvn/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body">
+            <b>【尖叫广告视频】广告片</b>
+            <p class="muted">脚本 / 剪辑</p>
+          </div>
+        </article>
+        <article class="card">
+          <button class="thumb" onclick="openVideo('https://www.bilibili.com/video/BV1ZbGEzbEE8/?share_source=copy_web&vd_source=fb931a2c890bac20ea90c275065fb3db')">▶︎ 点击播放（B站）</button>
+          <div class="card-body">
+            <b>【莉莉丝 | 这家书店让女性彼此看见】专访</b>
+            <p class="muted">采访 / 撰稿</p>
+          </div>
+        </article>
+      </div>
+      <button class="arrow prev" aria-label="向左">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M14 6 8 12l6 6" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="arrow next" aria-label="向右">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PPT（两栏 + 预览） ===== -->
+<section id="ppt" class="section">
+  <div class="wrap">
+    <h2 class="section-title">PPT | 评论与演示</h2>
+    <p class="lead">在线可翻页预览；若被平台拦截，请点击右上角“在新标签页打开”。</p>
+    <div class="grid cols-2">
+      <article class="card">
+        <div class="card-body"><b>《一周时评》</b><p class="muted">新闻评论 / 热点事件</p></div>
+        <div class="ratio"><iframe src="https://kdocs.cn/l/cgGJZJmHHUkU" title="WPS预览" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+      </article>
+      <article class="card">
+        <div class="card-body"><b>《Stray animal protection》</b><p class="muted">动物保护 / 数据分析 / 动画</p></div>
+        <div class="ratio"><iframe src="https://kdocs.cn/l/cbeUZjhrhQhj" title="WPS预览" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 文字（横向滑动 + 箭头） ===== -->
+<section id="writing" class="section">
+  <div class="wrap">
+    <h2 class="section-title">WRITING | 文案与复盘</h2>
+    <div class="rail-wrap">
+      <div class="rail">
+        <article class="card">
+          <div class="card-body"><b>《预防青少年犯罪于未然》</b><p class="muted">H5融媒体作品</p></div>
+          <div class="ratio"><iframe src="https://b.xiumi.us/stage/v5/6ddc6/537833901#/" title="秀米预览" loading="lazy"></iframe></div>
+        </article>
+        <article class="card">
+          <div class="card-body"><b>《欅坂46——日本燃烧生命的偶像文化》</b><p class="muted">公众号文章</p></div>
+          <div class="ratio"><iframe src="https://d.xiumi.us/board/v5/5MKdt/518954408" title="秀米预览" loading="lazy"></iframe></div>
+        </article>
+        <article class="card">
+          <div class="card-body"><b>《劈波斩浪，她的风帆永远高昂》</b><p class="muted">帆板运动员采访稿</p></div>
+          <div class="ratio"><iframe src="https://kdocs.cn/l/cei46jK0Iz6y" title="WPS预览" loading="lazy"></iframe></div>
+        </article>
+      </div>
+      <button class="arrow prev" aria-label="向左">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M14 6 8 12l6 6" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="arrow next" aria-label="向右">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 联系我（无边框统一） ===== -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <h2 class="section-title">联系我</h2>
+    <div class="contact">
+      <div class="left">
+        <p>邮箱：<b id="mail">2556563819@qq.com</b></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:6px 0">
+          <button class="btn primary" onclick="copyMail()">复制邮箱</button>
+          <a class="btn" href="mailto:2556563819@qq.com" rel="noopener">写邮件</a>
+        </div>
+        <p class="muted">也可微信添加：retsu421</p>
+      </div>
+      <div class="right" style="display:flex;align-items:center;justify-content:center;min-height:140px;color:#9fb9b2">
+        可放二维码 / 名片图
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-in">
+    <small>© <span id="year"></span> wxy. 保留所有权利.</small>
+    <small class="muted">Made with ♥︎ 粉 × 绿</small>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">已复制</div>
+
+<!-- 视频弹窗 -->
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="视频播放">
+  <div class="panel">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--line)">
+      <div style="font-weight:700">视频播放</div>
+      <button onclick="closeVideo()" class="btn">关闭</button>
+    </div>
+    <div class="ratio"><iframe id="videoFrame" src="" allowfullscreen title="视频播放器" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Toast
+  const toastEl = document.getElementById('toast');
+  function toast(text){ toastEl.textContent = text || '已复制'; toastEl.style.display='block'; setTimeout(()=>toastEl.style.display='none', 1600); }
+
+  // 复制邮箱
+  function copyMail(){
+    const mail = document.getElementById('mail').textContent.trim();
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(mail).then(()=>toast('已复制：' + mail));
+    }else{
+      const ta=document.createElement('textarea'); ta.value=mail; document.body.appendChild(ta); ta.select();
+      try{document.execCommand('copy'); toast('已复制：' + mail);}catch(e){toast('复制失败');}
+      ta.remove();
+    }
+  }
+
+  // 视频弹窗
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoFrame');
+  function openVideo(src){ frame.src = src.trim(); modal.style.display = 'flex'; }
+  function closeVideo(){ frame.src = ''; modal.style.display = 'none'; }
+
+  // 移动端惯性滚动 + 箭头滚动
+  document.querySelectorAll('.rail').forEach(el => el.style.WebkitOverflowScrolling = 'touch');
+  document.querySelectorAll('.rail-wrap').forEach(wrap=>{
+    const rail = wrap.querySelector('.rail');
+    const prev = wrap.querySelector('.prev');
+    const next = wrap.querySelector('.next');
+    if(prev && next){
+      prev.addEventListener('click',()=>rail.scrollBy({left:-rail.clientWidth*0.9,behavior:'smooth'}));
+      next.addEventListener('click',()=>rail.scrollBy({left: rail.clientWidth*0.9,behavior:'smooth'}));
+    }
+  });
+</script>
+</body>
+</html>
+
+
